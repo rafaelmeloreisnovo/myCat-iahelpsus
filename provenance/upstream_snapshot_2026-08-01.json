@@ -1,0 +1,156 @@
+{
+  "schema": "rafaelia.github-upstream-provenance.v1",
+  "audit_id": "AUD-GH-MYCAT-UPSTREAM-20260801T182900-0300",
+  "observed_at": "2026-08-01T18:29:00-03:00",
+  "subject_repository": "rafaelmeloreisnovo/myCat-iahelpsus",
+  "upstream_repository": "yumiaura/myCat",
+  "default_branch": "main",
+  "pre_application_relation": {
+    "status": "behind",
+    "ahead_by": 0,
+    "behind_by": 179,
+    "merge_base_commit": "e9fba63be25bfd61cf0518016fd63e5a4b4ad964",
+    "upstream_head_commit": "5d9a79c6ab3dcced021d57dd04a1e08445ebf871",
+    "fork_head_commit": "e9fba63be25bfd61cf0518016fd63e5a4b4ad964"
+  },
+  "provenance_evidence": [
+    {
+      "id": "EVD-MYCAT-README-UPSTREAM",
+      "kind": "REPOSITORY_FILE",
+      "repository": "rafaelmeloreisnovo/myCat-iahelpsus",
+      "path": "README.md",
+      "blob_sha": "ec6f959871518f147f3eeb8852de9c34ec8e4354",
+      "supports": [
+        "upstream_owner_reference",
+        "upstream_clone_reference"
+      ]
+    },
+    {
+      "id": "EVD-MYCAT-PYPROJECT-AUTHOR",
+      "kind": "REPOSITORY_FILE",
+      "repository": "rafaelmeloreisnovo/myCat-iahelpsus",
+      "path": "pyproject.toml",
+      "blob_sha": "dfbbc57655e3f5c8b2a1bf608fd66a0462e6550f",
+      "supports": [
+        "package_author_yumiaura",
+        "package_version_0.1.3"
+      ]
+    },
+    {
+      "id": "EVD-MYCAT-COMPARE",
+      "kind": "GITHUB_COMPARE",
+      "base": "yumiaura/myCat:main",
+      "head": "rafaelmeloreisnovo/myCat-iahelpsus:main",
+      "supports": [
+        "merge_base",
+        "ahead_behind_counts"
+      ]
+    },
+    {
+      "id": "EVD-MYCAT-UPSTREAM-CI",
+      "kind": "REPOSITORY_FILE",
+      "repository": "yumiaura/myCat",
+      "path": ".github/workflows/ci.yml",
+      "blob_sha": "1b43fa9c54e285d407d43d4b55d34c6b1f138680",
+      "supports": [
+        "automated_lint",
+        "automated_tests"
+      ]
+    },
+    {
+      "id": "EVD-MYCAT-UPSTREAM-DEB",
+      "kind": "REPOSITORY_FILE",
+      "repository": "yumiaura/myCat",
+      "path": ".github/workflows/build-deb.yml",
+      "blob_sha": "12671f839e01c3ae2f18fbc2f2858e5f4ed570ff",
+      "supports": [
+        "automated_packaging",
+        "automated_release_attachment"
+      ]
+    },
+    {
+      "id": "EVD-MYCAT-PR89",
+      "kind": "PULL_REQUEST",
+      "repository": "yumiaura/myCat",
+      "number": 89,
+      "author": "sts19813",
+      "merged": true,
+      "supports": [
+        "external_contributor",
+        "human_contextual_discussion"
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "claim_id": "CLM-MYCAT-UPSTREAM-RELATION-001",
+      "statement": "O repositório sujeito deriva de yumiaura/myCat e compartilhava o merge-base e9fba63be25bfd61cf0518016fd63e5a4b4ad964.",
+      "epistemic_state": "PROVADO",
+      "claim_allowed": false
+    },
+    {
+      "claim_id": "CLM-MYCAT-AUTOMATION-001",
+      "statement": "O upstream utiliza automação verificável para CI, testes, empacotamento e publicação de artefatos.",
+      "epistemic_state": "PROVADO",
+      "claim_allowed": false
+    },
+    {
+      "claim_id": "CLM-MYCAT-HYBRID-OPERATION-001",
+      "statement": "O padrão observado é compatível com operação híbrida humano + automação + assistência por IA.",
+      "epistemic_state": "EVIDENCIADO",
+      "claim_allowed": false
+    },
+    {
+      "claim_id": "CLM-MYCAT-AUTONOMOUS-BOT-001",
+      "statement": "A conta yumiaura é um bot integralmente autônomo.",
+      "epistemic_state": "TOKEN_VAZIO",
+      "claim_allowed": false
+    },
+    {
+      "claim_id": "CLM-MYCAT-FOLLOW-EVENT-001",
+      "statement": "A conta seguiu ou deixou de seguir Rafael em resposta automatizada ao fork ou aos pushes.",
+      "epistemic_state": "TOKEN_VAZIO",
+      "claim_allowed": false
+    }
+  ],
+  "risk_controls": {
+    "automatic_upstream_sync": false,
+    "reason": "Evitar ingestão automática de supply-chain sem revisão de diff, licença, testes e segurança.",
+    "required_before_sync": [
+      "review_changed_files",
+      "license_compatibility_check",
+      "dependency_and_secret_scan",
+      "test_in_isolated_environment",
+      "manual_merge_authorization"
+    ]
+  },
+  "privacy_class": "PUBLIC_METADATA_ONLY",
+  "legal_posture": {
+    "no_identity_accusation": true,
+    "no_personal_data_enrichment": true,
+    "no_circumvention": true,
+    "evidence_minimization": true
+  },
+  "tokens_vazios": [
+    {
+      "token": "TOKEN_VAZIO_ACCOUNT_AUTONOMY",
+      "reason": "Metadados públicos e padrões de commits não demonstram ausência de operador humano.",
+      "next_gate": "Obter declaração verificável do mantenedor ou evidência técnica inequívoca de execução autônoma."
+    },
+    {
+      "token": "TOKEN_VAZIO_FOLLOW_TIMELINE",
+      "reason": "A API consultada não forneceu histórico temporal completo de follow/unfollow.",
+      "next_gate": "Preservar eventos públicos datados, notificações ou snapshots independentes sem coletar dados privados."
+    },
+    {
+      "token": "TOKEN_VAZIO_DELETED_BRANCH_OR_FORCE_PUSH",
+      "reason": "O estado público atual não prova inexistência de branches apagadas, commits locais ou histórico reescrito.",
+      "next_gate": "Comparar clones/archives anteriores, reflogs locais disponíveis e snapshots públicos assinados."
+    }
+  ],
+  "R3": {
+    "F_ok": "Upstream, merge-base, contagem ahead/behind, automação de CI/release e colaboração externa foram materializados.",
+    "F_gap": "Autonomia integral da conta e causalidade de follow/unfollow não foram provadas.",
+    "F_next": "Executar auditoria recorrente de merge-base e preservar deltas públicos sem sincronização automática."
+  }
+}

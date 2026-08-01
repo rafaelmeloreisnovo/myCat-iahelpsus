@@ -1,0 +1,70 @@
+name: Provenance Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "provenance/**"
+      - "docs/UPSTREAM_PROVENANCE_AUDIT_*.md"
+      - "scripts/verify_provenance_snapshot.py"
+      - ".github/workflows/provenance-audit.yml"
+  pull_request:
+    paths:
+      - "provenance/**"
+      - "docs/UPSTREAM_PROVENANCE_AUDIT_*.md"
+      - "scripts/verify_provenance_snapshot.py"
+      - ".github/workflows/provenance-audit.yml"
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fork with history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate fail-closed snapshot
+        run: python scripts/verify_provenance_snapshot.py
+
+      - name: Verify upstream merge-base without syncing code
+        shell: bash
+        run: |
+          set -euo pipefail
+          snapshot="provenance/upstream_snapshot_2026-08-01.json"
+          expected_merge_base="$(python -c 'import json; print(json.load(open("provenance/upstream_snapshot_2026-08-01.json"))["pre_application_relation"]["merge_base_commit"])')"
+
+          git remote add audited-upstream https://github.com/yumiaura/myCat.git
+          git fetch --no-tags audited-upstream main
+
+          actual_merge_base="$(git merge-base HEAD audited-upstream/main)"
+          ahead="$(git rev-list --count audited-upstream/main..HEAD)"
+          behind="$(git rev-list --count HEAD..audited-upstream/main)"
+
+          {
+            echo "## Upstream provenance"
+            echo
+            echo "- snapshot: \`${snapshot}\`"
+            echo "- expected merge-base: \`${expected_merge_base}\`"
+            echo "- actual merge-base: \`${actual_merge_base}\`"
+            echo "- fork-only commits at this run: \`${ahead}\`"
+            echo "- upstream-only commits at this run: \`${behind}\`"
+            echo "- automatic upstream sync: \`disabled\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [[ "$actual_merge_base" != "$expected_merge_base" ]]; then
+            echo "Merge-base changed; create a new reviewed snapshot instead of rewriting history." >&2
+            exit 1
+          fi
