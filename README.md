@@ -1,5 +1,12 @@
 ## Desktop Cat: QT Overlay
 
+## License and upstream rights
+
+This repository follows material from [`yumiaura/mycat`](https://github.com/yumiaura/mycat).
+No explicit upstream license was located during the 2026-09-16 audit, so this
+copy **does not grant reuse rights by implication**. See [`LEGAL_NOTICE.md`](LEGAL_NOTICE.md)
+before copying, modifying or redistributing upstream material.
+
 [<img src="https://raw.githubusercontent.com/yumiaura/yumiaura/refs/heads/main/images/cat.gif" width="164" alt="cat.gif"/>](https://github.com/yumiaura)
 
 I made a cute little animated cat for your desktop.<br>
