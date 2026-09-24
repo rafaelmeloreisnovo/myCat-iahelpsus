@@ -41,3 +41,22 @@ Order `GPA.3323-3447-1555-24204` and the reported BB gift-card/redeem route rema
 ## Next
 
 Preserve historical event/media identities, locate historical account-activity snapshots, establish upstream LLM first-parent provenance, and test raw-event -> canonicalization -> event-ID/dedup independently from cryptographic hashing.
+
+
+## Step 2 — primary visual evidence
+
+Drive image `1XJYEel67Ipe1js9sTanZn3_927ld3kqL` is a 99,086-byte PNG (Drive metadata: created 2026-08-06, updated 2026-08-03). Visual inspection shows a GitHub Actions Copilot job with **Failure**, total duration **5s**, and this annotation:
+
+> The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings.
+
+Raw fetched image SHA-256:
+
+`0c1e61b682aedfa16e08477566474ea8fad0666cfd5699e5d6ba5f66a5913725`
+
+Additional preserved visual pointers:
+
+- `1-487AMcbXcSMScSOjFvtRFx6Pg7wuTRZ` — "Screenshot (28 de jul de 2026 23:23:10)" — SHA-256 `d6f6688247242b7019601c5e5451ec074bcb26e658eac00493d5a81c40139243`.
+- `172FHFwe42_5Q4-Ae5qx07U5X4zsBJBfQ` — GitHub mobile menu showing Copilot — SHA-256 `d24a2a2103442584a6ef94560cf4f0de406bc00fd21d5878be21d7dd3acbe306`.
+- `10dQFH0SZVBMYjJK4P_uc9AjNA1Zqg8q-` — GitHub branch view showing `copilot/*` branches — SHA-256 `e4554844c304674c65e642215124e62893a683050e6aad077612232c2daaa089`.
+
+**Boundary:** this proves that a billing/spending gate prevented at least one Copilot job from starting. It does not identify the root cause among failed payment, spending-limit configuration, entitlement/account mapping, or any intentional intervention. No BLAKE3 digest is asserted here because one was not computed in this environment.
