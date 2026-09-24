@@ -106,3 +106,30 @@ The linked `Rafaelia_Private#35` head `e68a4fdb28781448009e4d9b67482aa01aaa4ada`
 The merge `94d0776d25bd856cc8150557ec04d802c6659a3b` and its first parent share tree `a13e9664a0fe1eab8c70e602d09e9f6247f83582`.
 
 The PR timeline explicitly records `head_ref_deleted` at 2025-12-03T09:36:19Z, eight seconds after merge/close. Therefore this specific lifecycle is a provider-visible empty/no-op commit followed by an explicitly recorded branch removal, not evidence of a removed file-tree delta.
+
+
+## Step 5 — public contact, AI chronology, and social automation boundary
+
+### Contact and public access route
+
+- 2025-10-23 17:46:10Z — `rafaelmeloreisnovo` commented on upstream commit `d2c9c04...`: “Hi how are you. How you find me”.
+- 17:55:12Z — `yumiaura` replied on that commit that they were “watching” the account and thanked it for following. The reply is independently preserved in a GitHub notification email.
+- 17:58:29Z — `rafaelmeloreisnovo` posted a long public technical plan on upstream commit `1ff5862...`, covering license/governance, CONTRIBUTING/SECURITY/CODEOWNERS, lint/type/pre-commit, CI/CD, packaging, docs/GIF and tests.
+- Later that day DatMayo committed contribution/documentation work and opened PR #5; it was merged at 21:58Z. The upstream added a license the next day. These are generic engineering topics; timing and overlap are recorded, not promoted to derivation.
+
+### AI path
+
+- PR #25 by `king-tri-ton`, merged 2025-11-01, introduced an **OpenAI API** chat companion.
+- Upstream commit `2d894ecccd5b6af30fee7e1995debb4fd27a1d44` by `yumiaura`, dated 2025-11-13, added `llm_ollama.py` together with the split LLM modules. This is the earliest exact myCat Ollama-path evidence found in this audit.
+- User-side public evidence predates it:
+  - `RafNet-Core@d5ace6d0...` — 2025-07-02 — local API + generated RafaelIA script.
+  - `publicacientiespiritual@bdad5083...` — 2025-07-29 — LLM/RafaelIA material.
+- Targeted pre-2025-11-13 commit searches found no exact user-side marker for `Ollama`, `llama`, `11434`, `GGUF`, or `llama.cpp`. The supported precedence claim is therefore **public AI/local-API material**, not an Ollama-specific implementation.
+
+### Current social automation
+
+On 2026-09-24 the public `yumiaura` profile displays roughly 7k followers, 18.6k following and 3.5k stars. Its README links the sentence about following a visitor because their project “caught my interest” to `yumiaura/followme`. That sentence entered the profile in commit `ad732a49016d2eec6d51be7290dece5276156c8b` on 2026-05-29.
+
+`followme` is a later public mechanism that uses local Ollama scoring and can automatically follow profiles and star repositories, including repeated/infinite operation.
+
+**Boundary:** this proves a public contact/access path and a later mass-social automation mechanism. It does not prove that `followme` or an equivalent bot was operating in October 2025, nor that later myCat AI work was derived from RafaelIA.
