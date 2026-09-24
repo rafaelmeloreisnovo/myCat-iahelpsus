@@ -1,0 +1,36 @@
+{
+  "schema": "mycat.public.source.pointers.v1",
+  "claim_allowed": false,
+  "events": [
+    {
+      "ts": "2025-10-23T17:46:10Z",
+      "repo": "yumiaura/myCat",
+      "commit": "d2c9c04a97a026d844488578f4b35bc36ef6efab",
+      "comment_id": 168699145,
+      "actor": "rafaelmeloreisnovo"
+    },
+    {
+      "ts": "2025-10-23T17:55:12Z",
+      "repo": "yumiaura/myCat",
+      "commit": "d2c9c04a97a026d844488578f4b35bc36ef6efab",
+      "comment_id": 168699883,
+      "actor": "yumiaura"
+    },
+    {
+      "ts": "2025-10-23T17:58:29Z",
+      "repo": "yumiaura/myCat",
+      "commit": "1ff5862e90ddc2f805e1259bb9da63db93bc21bf",
+      "comment_id": 168701587,
+      "actor": "rafaelmeloreisnovo"
+    },
+    {
+      "ts": "2025-10-23T17:59:42Z",
+      "repo": "rafaelmeloreisnovo/myCat-iahelpsus",
+      "event": "repository_created"
+    }
+  ],
+  "gaps": [
+    "TOKEN_VAZIO_HISTORICAL_FOLLOW_COUNTS",
+    "TOKEN_VAZIO_CAUSAL_LINK"
+  ]
+}
