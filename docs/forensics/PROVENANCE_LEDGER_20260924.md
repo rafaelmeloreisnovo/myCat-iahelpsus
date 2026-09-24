@@ -60,3 +60,25 @@ Additional preserved visual pointers:
 - `10dQFH0SZVBMYjJK4P_uc9AjNA1Zqg8q-` — GitHub branch view showing `copilot/*` branches — SHA-256 `e4554844c304674c65e642215124e62893a683050e6aad077612232c2daaa089`.
 
 **Boundary:** this proves that a billing/spending gate prevented at least one Copilot job from starting. It does not identify the root cause among failed payment, spending-limit configuration, entitlement/account mapping, or any intentional intervention. No BLAKE3 digest is asserted here because one was not computed in this environment.
+
+
+## Step 3 — exact provider chain for the Copilot billing gate
+
+The visual billing-gate screenshot can now be bound to provider metadata in the private producer repository `rafaelmeloreisnovo/Rafaelia_Private`.
+
+- PR: `#35`, title `[WIP] Unify technical structure of RAFAELIA repositories`.
+- Head: `copilot/integrate-repositories-structure`.
+- Head SHA: `e68a4fdb28781448009e4d9b67482aa01aaa4ada` (`Initial plan`, Copilot bot, 2025-11-25 06:05:28Z).
+- Exact dynamic run: `19659988066`, `Running Copilot`, created 06:05:33Z, completed 06:05:38Z, conclusion `failure`.
+- Exact job: `56304280175`, name `copilot`, 06:05:34Z..06:05:37Z, `steps=[]`, `runner_id=0`, empty runner name.
+- The preserved screenshot for this run states that the job was not started because recent account payments had failed **or** the spending limit needed to be increased.
+- Two owner comments invoking `@copilot` generated two more dynamic runs on the same head SHA:
+  - `19660076585`: 06:09:54Z..06:09:59Z; job `56304547676`; failure; `steps=[]`; `runner_id=0`.
+  - `19660127113`: 06:12:18Z..06:12:23Z; job `56304697794`; failure; `steps=[]`; `runner_id=0`.
+- Current job-log downloads for all three return HTTP 410; the run/job metadata remains available.
+- PR #35 was later merged on 2025-12-03 with merge SHA `94d0776d25bd856cc8150557ec04d802c6659a3b`; provider metadata reports one commit and zero changed files/additions/deletions.
+- The historical head branch is absent from the current branch list; PR/run metadata proves that it existed. Its current absence does not establish when or why it was deleted.
+
+**Date correction:** the underlying Copilot billing/spending event is **2025-11-25**. The August-2026 Drive timestamps belong to preservation/archive of the screenshot, not the original failure.
+
+**Boundary:** repeated failure before runner steps is observable. The screenshot binds a billing/spending precondition to the first run. This does not establish deliberate targeting, deletion of logs, or any BLAKE3 collision.
