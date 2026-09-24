@@ -82,3 +82,18 @@ The visual billing-gate screenshot can now be bound to provider metadata in the 
 **Date correction:** the underlying Copilot billing/spending event is **2025-11-25**. The August-2026 Drive timestamps belong to preservation/archive of the screenshot, not the original failure.
 
 **Boundary:** repeated failure before runner steps is observable. The screenshot binds a billing/spending precondition to the first run. This does not establish deliberate targeting, deletion of logs, or any BLAKE3 collision.
+
+
+## Step 4 — empty commit and explicit branch deletion
+
+Git object identity resolves the apparent zero-diff lifecycle of `Rafaelia_Private#35`.
+
+- Head `e68a4fdb28781448009e4d9b67482aa01aaa4ada` has tree `4ad3f38889d32e67b508154a34bfa05fb56ee1c1`, zero additions/deletions and no files.
+- Its parent `bf3822b6ad8546f1e36b8534318307de512653f4` has **the same tree SHA**. The Copilot `Initial plan` commit was therefore an empty/no-op Git commit by tree identity.
+- Merge `94d0776d25bd856cc8150557ec04d802c6659a3b` has tree `a13e9664a0fe1eab8c70e602d09e9f6247f83582`.
+- Its first parent `844d966e5542959032704b781e4841ff0584f38e` has **the same merge tree SHA**. The merge introduced no file-tree delta into `main`.
+- PR timeline: ready-for-review 09:36:05Z → merged/closed 09:36:11Z → `head_ref_deleted` 09:36:19Z on 2025-12-03.
+- The provider attributes `head_ref_deleted` to `rafaelmeloreisnovo`. That identifies the authority/account attributed to the event, not the human/UI mechanism that caused it.
+- Timeline also preserves `copilot_work_finished_failure` events matching all three 2025-11-25 dynamic Copilot attempts.
+
+This specific branch deletion was **not silent**, and the object graph shows there was no file payload in the head commit to erase. It is not evidence of cryptographic collision or content replacement.
