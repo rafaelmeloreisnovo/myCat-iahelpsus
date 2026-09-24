@@ -97,3 +97,12 @@ Git object identity resolves the apparent zero-diff lifecycle of `Rafaelia_Priva
 - Timeline also preserves `copilot_work_finished_failure` events matching all three 2025-11-25 dynamic Copilot attempts.
 
 This specific branch deletion was **not silent**, and the object graph shows there was no file payload in the head commit to erase. It is not evidence of cryptographic collision or content replacement.
+
+
+## Step 4 — Git object closure for linked PR #35
+
+The linked `Rafaelia_Private#35` head `e68a4fdb28781448009e4d9b67482aa01aaa4ada` and its parent share the same tree `4ad3f38889d32e67b508154a34bfa05fb56ee1c1`; the head reports zero additions/deletions and no changed files.
+
+The merge `94d0776d25bd856cc8150557ec04d802c6659a3b` and its first parent share tree `a13e9664a0fe1eab8c70e602d09e9f6247f83582`.
+
+The PR timeline explicitly records `head_ref_deleted` at 2025-12-03T09:36:19Z, eight seconds after merge/close. Therefore this specific lifecycle is a provider-visible empty/no-op commit followed by an explicitly recorded branch removal, not evidence of a removed file-tree delta.
