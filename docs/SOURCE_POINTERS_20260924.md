@@ -21,3 +21,11 @@ claim_allowed=false
 - gap_historical_followers_following: TOKEN_VAZIO
 - gap_historical_public_events: TOKEN_VAZIO
 - boundary: temporal ordering does not establish copying or causation
+
+- current_profile_observation_2026-09-24: yumiaura public profile shows 7k followers, 18.6k following, 3.5k starred repositories and 37 repositories.
+- current_profile_source: https://github.com/yumiaura
+- current_profile_readme_note: profile states that it follows profiles because a project caught its interest.
+- current_following_behavior_context: GitHub documents that following people places their public activity on the follower's personal dashboard.
+- historical_2025_followers_following: TOKEN_VAZIO
+- historical_2025_event_volume: TOKEN_VAZIO
+- current_state_must_not_be_back-projected_to_2025: true
